@@ -7,7 +7,7 @@ import { AppComponent } from './app.component'
 import { WelcomeComponent } from './home/welcome.component'
 import { ProductDetailComponent } from './products/product-detail.component'
 import { ProductListComponent } from './products/product-list.component'
-import { ConverToSpacesPipe } from './shared/convert-to-spaces.pipe'
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'
 import { StarComponent } from './shared/star.component'
 
 export const routes: Routes = [
@@ -22,7 +22,7 @@ export const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ConverToSpacesPipe,
+    ConvertToSpacesPipe,
     StarComponent,
     ProductDetailComponent,
     WelcomeComponent,
