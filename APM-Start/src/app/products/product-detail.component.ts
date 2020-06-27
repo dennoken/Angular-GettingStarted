@@ -10,16 +10,18 @@ import { ProductService } from './product.service'
 export class ProductDetailComponent implements OnInit {
   pageTitle = 'Product Detail'
   product: IProduct
-  
-  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {
-  }
-  
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService
+  ) {}
+
   ngOnInit(): void {
     let id = +this.route.snapshot.paramMap.get('id')
-    this.pageTitle += ` : ${id}`
     this.productService.getProductById(id).subscribe({
-      next:(product) => this.product = product,
-      error:(error) => console.error(error)
+      next: (product) => (this.product = product),
+      error: (error) => console.error(error),
     })
   }
 

@@ -1,18 +1,31 @@
-<div class="card"
-     *ngIf="product">
+<div class="card" *ngIf="product">
   <div class="card-header">
-    {{ pageTitle + ':  ' + product.productName }}
+    {{ pageTitle }}
   </div>
   <div class="card-body">
-    <h4 class="card-title">{{product.productName}}</h4>
-    <p class="card-text">{{product.price}}</p>
+    <img
+      class="card-img-top"
+      style="max-width: 200px;"
+      src="{{ product.imageUrl }}"
+      alt="{{ product.productName }}"
+    />
+    <h4 class="card-title">{{ product.productName }}</h4>
+    <p class="card-text">{{ product.productCode }}</p>
+    <p class="card-text">{{ product.releaseDate }}</p>
+    <p class="card-text h5">
+      {{ product.price | currency: 'USD':'symbol':'1.2-2' }}
+    </p>
+    <pm-star [rating]="product.starRating"> </pm-star>
   </div>
 
   <div class="card-footer text-muted">
-    <button type="button"
-            class="btn btn-outline-secondary"
-            (click)="onBack()"
-            style="width: 80px;"><i class="fa fa-chevron-left"
-         aria-hidden="true"></i>Back</button>
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="onBack()"
+      style="width: 80px;"
+    >
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>Back
+    </button>
   </div>
 </div>
