@@ -9,10 +9,11 @@ import { ProductDetailComponent } from './products/product-detail.component'
 import { ProductListComponent } from './products/product-list.component'
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'
 import { StarComponent } from './shared/star.component'
+import { ProductDetailGuard } from './shared/product-detail.guard'
 
 export const routes: Routes = [
   { path: 'products', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'products/:id', component: ProductDetailComponent, canActivate: [ProductDetailGuard]},
   { path: 'welcome', component: WelcomeComponent },
   { path: '', pathMatch: 'full', redirectTo: 'welcome' },
   { path: '**', pathMatch: 'full', redirectTo: 'welcome' },
